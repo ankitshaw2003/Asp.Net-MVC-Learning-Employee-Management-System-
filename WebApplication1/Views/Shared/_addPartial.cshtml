@@ -1,0 +1,27 @@
+﻿@*@model WebApplication1.Models.tblemployeemst*@
+    @*<tr>
+        <td>Model.Id</td>
+        <td>@Model.Name</td>
+        <td>@Model.Address</td>
+        <td><a href="~/student/Details/@Model.Id">Detail</a></td>
+        <td><a href="~/student/update/@Model.Id">Edit</a></td>
+        <td><a href="~/student/delete/@Model.Id">Delete</a></td>
+    </tr>*@
+
+
+@*@model WebApplication1.Models.tblemployeemst*@
+
+<tr>
+    <td>@Model.id</td>
+    <td>@Model.name</td>
+    <td>@Model.address</td>
+    <td>
+        <a class="btn btn-info" href="~/student/Details/@Model.id">Detail</a>
+        <a class="btn btn-primary" href="~/student/update/@Model.id">Edit</a>
+        <a class="btn btn-danger" href="~/student/delete/@Model.id">Delete</a>
+    </td>
+
+
+
+ 
+</tr>

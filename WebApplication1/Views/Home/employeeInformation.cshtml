@@ -1,0 +1,46 @@
+﻿
+@model WebApplication1.Models.Employee
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+
+
+    @section HeaderContent{
+        <h1>You are right now in Your Employee Information Page</h1>
+    }
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Address</td>
+                <td>Activity</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.Employees)
+            {
+                @Html.Partial("_addPartial", item)
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.Employee
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section HeaderContent{
+    <h1>You are right now in Your Employee Details Page</h1>
+}
+<table>
+    <tbody>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Address</td>
+        </tr>
+        @*@foreach (var item in ViewBag.MyData)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.address</td>
+                </tr>
+            }*@
+        @foreach (var item in Model.Employees)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.address</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,92 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+@section HeaderContent{
+    <h1>You are right now in Your Add Employee Page</h1>
+}
+<section>
+    @*@using (Html.BeginForm("PostUsingStronglyBinding", "Home"))
+        {
+            <p>Name</p>
+            <input type="text" name="name" />
+            <br />
+            @Html.ValidationMessage("name")
+            <br /><br />
+            <p>Address</p>
+            <input type="text" name="address" />
+            <br />
+            @Html.ValidationMessage("address")
+            <br /><br />
+            <input type="submit" value=" click here" />
+            <br /><br />
+            @Html.ValidationSummary()
+            <br />
+        }*@
+    @*<form>
+            <p>Name</p>
+            <input type="text" id="stdName" name="name" />
+            <br />
+            @Html.ValidationMessage("name")
+            <br /><br />
+            <p>Address</p>
+            <input type="text" id="stdAddress" name="address" />
+            <br />
+            @Html.ValidationMessage("address")
+            <br /><br />
+            <input type="button" value=" click here" onclick="btnclick()" />
+            <br /><br />
+            @Html.ValidationSummary()
+            <br />
+        </form>*@
+    @using (Ajax.BeginForm("AddEmployee", new AjaxOptions() { HttpMethod = "POST" }))
+    {
+        <p>Name</p>
+        <input type="text" id="stdName" name="name" />
+        <br />
+        @Html.ValidationMessage("name")
+        <br /><br />
+        <p>Address</p>
+        <input type="text" id="stdAddress" name="address" />
+        <br />
+        @Html.ValidationMessage("address")
+        <br /><br />
+        <input type="button" value=" click here" onclick="btnclick()" />
+        <br /><br />
+        @Html.ValidationSummary()
+        <br />
+    }
+</section>
+
+
+<script>
+    function btnclick() {
+        var Name = $("#stdName").val();
+        var Address = $("#stdAddress").val();
+        var obj = {
+            name: Name,
+            address: Address
+        }
+        submitForm(obj);
+    }
+    function submitForm(obj) {
+        $.ajax({
+            url: "addedEmployeeDetails",
+            method: "POST",
+            data: obj,
+            success: function (response) {
+                alert("Data submitted successfully!");
+                window.location.href = response.redirectUrl; // Redirect after successful save
+            },
+            error: function (xhr, status, error) {
+                alert("Failed to submit data.");
+            }
+        });
+
+    }
+</script>

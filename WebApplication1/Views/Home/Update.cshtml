@@ -1,0 +1,28 @@
+﻿@model WebApplication1.Models.tblemployeemst
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section HeaderContent{
+    <h1>You are right now in Your Update Information Page</h1>
+}
+
+<section>
+    @using (Html.BeginForm("UpdateUsingStronglyBinding", "Home"))
+    {
+        <input type="hidden" name="id" value="@Model.id" />
+        <p>Name</p>
+        <input type="text" name="name" value="@Model.name" />
+        <br />
+        @Html.ValidationMessage("name")
+        <br /><br />
+        <p>Address</p>
+        <input type="text" name="address" value="@Model.address" />
+        <br />
+        @Html.ValidationMessage("address")
+        <br /><br />
+        <input type="submit" value=" click here" />
+        <br /><br />
+        @Html.ValidationSummary()
+        <br />
+    }
+</section>
